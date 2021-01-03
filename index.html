@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Cite Your Stuff</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header>
+            <h1>Manual MLA Citation</h1>
+        </header>
+
+        <div class="response">
+            <h2>Copy this: </h2>
+            <p id="output"></p>
+        </div>
+
+        <main>
+            <p>Author: <input type="text" name="Author" id="author" placeholder="Full Name"></p>
+            <label for="type">The Source Type: </label>
+            <select id="type" name="source-type">
+                <option value="website">Website</option>
+                <option value="book">Book</option>
+            </select>
+            <p>Title of Source: <input type="text" name="Source Title" id="source" required></p>
+            <p>Title of Container: <input type="text" name="Container Title" id="container"></p>
+            <p>Other Contributors: <input type="text" name="other contributors" id="contributors" placeholder="editors, illustrators, translators, etc."></p>
+            <p>Version: <input type="text" name="version" id="version" ></p>
+            <p>Number: <input type="text" name="number" id="number" placeholder="volume and issue numbers" ></p>
+            <p>Publisher: <input type="text" name="publisher" id="publisher" ></p>
+            <p>Publication Date: <input type="text" name="date" id="date" ></p>
+            <p>Location: <input type="text" name="location" id="locate" placeholder="Page Number or URL" ></p>
+
+            <button id="cite-button">Click me to Cite</button>
+        </main>
+        
+
+        <footer>
+            <p><a href="https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_formatting_and_style_guide.html">Reference: Purdue OWL</a></p>
+        </footer>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Should change the address of javascript to better organize the file-->
+        <script src="manual-mla.js"></script>
+    </body>
+</html>
