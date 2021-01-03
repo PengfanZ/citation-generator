@@ -17,7 +17,7 @@ body{
 
 .response{
     background-color: #EBCFC4;
-    padding: 5px;
+    padding: 10px;
 }
 
 footer{
@@ -32,7 +32,7 @@ footer>p>a:link, footer>p>a:visited{
 
 main{
     background-color: rgb(255, 252, 153);
-    padding: 1em;
+    padding: 1.5em;
 }
 
 #source{
@@ -48,10 +48,58 @@ main{
 }
 
 #cite-button{
-    width: 80%;
-    height: 25px;
+    width: 20%;
+    height: 30px;
+    position: absolute;
+    left: 40%;
+    background-color: #cf2e2e;
+    transition-duration: 0.2s;
+    border-radius: 12px ;
+    color: white;
+}
+
+#cite-button:hover{
+    background-color: #902020;
+}
+
+#cite-button:active{
+    border-style: inset;
 }
 
 #contributors{
     width: 200px;
+}
+
+.required-field{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.suggested-field{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+h3{
+    font-weight: bolder;
+}
+
+/* For laptop interface */
+@media (min-width: 1000px){
+    body{
+        width: 70%;
+        margin: auto;
+    }
+
+    p, label{
+        font-size: 1.3em;
+    }
+
+    h3{
+        font-size: 1.5em;
+    }
+
+    h2{
+        font-size: 1.7em;
+    }
 }
