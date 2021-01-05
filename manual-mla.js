@@ -1,4 +1,3 @@
-
 function handleClick() {
     var source = document.querySelector("#source").value;
     if (!source) alert("A citation should have source.");else {
@@ -10,7 +9,20 @@ function handleClick() {
         var publisher = document.querySelector("#publisher").value;
         var date = document.querySelector("#date").value;
         var location = document.querySelector("#locate").value;
+
+        //dropdown menu options
         var type = document.querySelector('#type').value;
+        var responsibility = document.querySelector('#responsibility').value;
+
+        //setup contributors
+        if (contributors && !responsibility) {
+            alert("You should assign a responsibility to other contributors");
+            return;
+        }
+        if (contributors && responsibility) {
+            if (responsibility === 'editor') contributors = "Edited by " + contributors;
+            if (responsibility === 'translator') contributors = "Translated by " + contributors;
+        }
 
         //find first name and last name
         var nameArr = author.split(' ');
@@ -25,8 +37,6 @@ function handleClick() {
             }
             firstName += '. ';
         }
-
-        console.log(nameArr.length);
 
         source = source ? source + ". " : "";
         container = container ? container + ", " : "";
@@ -55,14 +65,21 @@ function handleClick() {
             }
             if (type === 'book') {
                 //to check if source is the last element
+                if (latter) {
+                    latter = latter.substring(0, latter.length - 2) + ".";
+                }
                 ReactDOM.render(React.createElement(
-                    "div",
+                    "span",
                     null,
                     lastName + firstName,
                     React.createElement(
-                        "i",
+                        "span",
                         null,
-                        source
+                        React.createElement(
+                            "i",
+                            null,
+                            source
+                        )
                     ),
                     latter
                 ), document.getElementById('output'));
@@ -71,13 +88,17 @@ function handleClick() {
             source = '"' + source.substring(0, source.length - 1) + '" ';
             if (!latter) container = container.substring(0, container.length - 2) + '.';else latter = latter.substring(0, latter.length - 2) + ".";
             ReactDOM.render(React.createElement(
-                "div",
+                "span",
                 null,
                 lastName + firstName + source,
                 React.createElement(
-                    "i",
+                    "span",
                     null,
-                    container
+                    React.createElement(
+                        "i",
+                        null,
+                        container
+                    )
                 ),
                 latter
             ), document.getElementById('output'));

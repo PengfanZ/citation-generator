@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cite Your Stuff | MLA Citation By ISBN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <header>
+            <h1>MLA Citation By ISBN</h1>
+        </header>
+        
+        <div class="response">
+            <h2>Copy this: </h2>
+            <p id="output"></p>
+        </div>
+
+        <main id="input-field">
+            <p>ISBN Number: <input type="number" name="ISBN Number" id='isbn' placeholder="10 or 13 digits number"></p>
+            <button id="isbn-search-button">Search</button>
+        </main>
+
+        <div id="book-info"></div>
+
+
+        <footer>
+            <p>Supported by Google Book API</p>
+        </footer>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Should change the address of javascript to better organize the file-->
+        <script src="mla-isbn.js"></script>
+    </body>
+</html>
