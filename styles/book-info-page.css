@@ -1,0 +1,22 @@
+#book-info{
+    background-color: white;
+    padding: 2em;
+}
+
+/*two buttons*/
+#cc{
+    width: 10%;
+    left: 70%;
+
+}
+
+#back{
+    width: 10%;
+    left: 20%;
+}
+
+/*book image*/
+figure{
+    position: relative;
+    left: 35%;
+}

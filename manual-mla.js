@@ -106,5 +106,14 @@ function handleClick() {
     }
 }
 
+function icon() {
+    var x = document.getElementById("nav");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+
 var button = document.getElementById("cite-button");
 button.addEventListener('click', handleClick);

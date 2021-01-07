@@ -1,0 +1,27 @@
+button{
+    width: 20%;
+    height: 30px;
+    position: absolute;
+    left: 40%;
+    background-color: #cf2e2e;
+    transition-duration: 0.2s;
+    border-radius: 12px ;
+    color: white;
+}
+
+button:hover{
+    background-color: #902020;
+}
+
+button:active{
+    border-style: inset;
+}
+
+footer{
+    text-align: center;
+    padding-top: 1em;
+}
+
+footer>p>a:link, footer>p>a:visited{
+    color: rgb(248, 147, 29);
+}

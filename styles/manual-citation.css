@@ -1,0 +1,33 @@
+
+
+
+#source{
+    width: 300px;
+}
+
+#date{
+    width: 75px;
+}
+
+#locate{
+    width: 150px;
+}
+
+#container{
+    width: 200px;
+}
+
+#contributors{
+    width: 200px;
+}
+
+.required-field{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.suggested-field{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+

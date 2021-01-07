@@ -24,6 +24,7 @@ function handleFetch() {
         var item = jsonResponse.items[0];
         var info = item.volumeInfo;
         if (info.authors === undefined) author = '';else author = info.authors[0];
+
         source = info.title;
         publisher = info.publisher;
         date = info.publishedDate;
@@ -58,15 +59,28 @@ function handleFetch() {
                 date
             ),
             React.createElement(
-                "p",
+                "figure",
                 null,
-                "Image: "
+                React.createElement("img", { src: image, alt: "image of the book" }),
+                React.createElement(
+                    "figcaption",
+                    null,
+                    "Title Page Image"
+                )
             ),
-            React.createElement("img", { src: image, alt: "image of the book" }),
             React.createElement(
-                "button",
-                { onClick: updateInputField },
-                "Create Citation"
+                "div",
+                null,
+                React.createElement(
+                    "button",
+                    { onClick: updateInputField, id: "cc" },
+                    "Create Citation"
+                ),
+                React.createElement(
+                    "button",
+                    { onClick: backToOriginalPage, id: "back" },
+                    "Back"
+                )
             )
         ), document.getElementById('book-info'));
     }).catch(function (error) {
@@ -78,16 +92,20 @@ function handleFetch() {
             " error."
         ), document.getElementById('book-info'));
     });
+
+    //remove isbn input field
+    ReactDOM.render(React.createElement("div", null), document.getElementById('input-field'));
 }
 
 function updateInputField() {
-
+    changeDateFormat(date);
+    console.log(date);
     ReactDOM.render(React.createElement(
         "div",
         null,
         React.createElement(
             "div",
-            { id: "required-field" },
+            { className: "required-field" },
             React.createElement(
                 "h3",
                 null,
@@ -102,7 +120,7 @@ function updateInputField() {
         ),
         React.createElement(
             "div",
-            { id: "suggested-field" },
+            { className: "suggested-field" },
             React.createElement(
                 "h3",
                 null,
@@ -161,7 +179,7 @@ function updateInputField() {
         ),
         React.createElement(
             "div",
-            { id: "optional-field" },
+            { className: "optional-field" },
             React.createElement(
                 "h3",
                 null,
@@ -288,6 +306,35 @@ function backToOriginalPage() {
     ), document.getElementById('input-field'));
     ReactDOM.unmountComponentAtNode(document.getElementById('output'));
     document.querySelector('#output').textContent = '';
+
+    ReactDOM.render(React.createElement("div", null), document.getElementById('book-info'));
+}
+
+function changeDateFormat(val) {
+    if (!val) return;
+    var dateArr = val.split('-');
+    //console.log(dateArr);
+    var year = '';
+    var month = '';
+    var day = '';
+    for (var i = 0; i < dateArr.length; i++) {
+        if (i === 0) year = dateArr[0];
+        if (i === 1) month = dateArr[1];
+        if (i === 2) day = dateArr[2];
+    }
+
+    if (month === '01') month = 'Jan.';else if (month === '02') month = 'Feb.';else if (month === '03') month = 'March';else if (month === '04') month = 'April';else if (month === '05') month = 'May';else if (month === '06') month = 'June';else if (month === '07') month = 'July';else if (month === '08') month = 'Aug.';else if (month === '09') month = 'Sept.';else if (month === '10') month = 'Oct.';else if (month === '11') month = 'Nov.';else if (month === '12') month = 'Dec.';else month = '';
+    date = day + ' ' + month + ' ' + year;
+    //console.log(date);
+}
+
+function icon() {
+    var x = document.getElementById("nav");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
 }
 
 var search_btn = document.getElementById("isbn-search-button");
